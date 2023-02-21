@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+
 namespace ConsoleAppProject.App01
 {
     /// <summary>
