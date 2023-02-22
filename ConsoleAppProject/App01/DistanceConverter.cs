@@ -43,7 +43,18 @@ namespace ConsoleAppProject.App01
 
         private void OutputFeet() 
         {
+            OutputHeading();
             Console.WriteLine(miles + " miles is " + feet + " feet|");
+        }
+
+        private void OutputHeading()
+        { 
+            Console.WriteLine();
+            Console.WriteLine(" ---------------------------- ");
+            Console.WriteLine("     Conver Miles to Feet     ");
+            Console.WriteLine("        By Ana Elderton       ");
+            Console.WriteLine(" ---------------------------- ");
+            Console.WriteLine();
         }
     }
 }
