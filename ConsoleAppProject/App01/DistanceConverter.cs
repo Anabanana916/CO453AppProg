@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 
 namespace ConsoleAppProject.App01
 {
@@ -14,7 +15,7 @@ namespace ConsoleAppProject.App01
 
         public const double METRES_IN_MILES = 1609.34;
 
-        private double miles;
+        public const double FEET_IN_METRES = 3.28084;
 
         string FromUnit;
         string ToUnit;
@@ -60,20 +61,30 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("1. Miles");
             Console.WriteLine("2. Feet");
             Console.WriteLine("3. Metres");
+            Console.WriteLine("4. Close");
 
             Console.WriteLine("Enter");
-            string choice = Console.ReadLine();
-            if (choice == "1")
+            int choice;
+            choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
             {
                 return "miles";
             }
-            else if (choice == "2")
+            else if (choice == 2)
             {
                 return "feet";
             }
-            else if (choice == "3")
+            else if (choice == 3)
             {
                 return "metres";
+            }
+            else if (choice == 4)
+            {
+                Close();
+            }
+            if (choice <=0 || choice > 4)
+            {
+                Console.WriteLine("Invalid choice. Please enter 1 - 4. \n");
             }
                 return null;
         }
@@ -94,17 +105,43 @@ namespace ConsoleAppProject.App01
             {
                 ToDistance = FromDistance / FEET_IN_MILES;
             }
-         }
-
-        ///private void CalculateMetres()
-        ///{
-        ///    metres = miles * METRES_IN_MILES;
-        ///}
+            else if (FromUnit == "miles" && ToUnit == "metres")
+            {
+                ToDistance = FromDistance * METRES_IN_MILES;
+            }
+            else if (FromUnit == "feet" && ToUnit == "metres")
+            {
+                ToDistance = FromDistance / FEET_IN_METRES;
+            }
+            else if (FromUnit == "metres" && ToUnit == "feet")
+            {
+                ToDistance = FromDistance * FEET_IN_METRES;
+            }
+            else if (FromUnit == "metres" && ToUnit == "miles")
+            {
+                ToDistance = FromDistance / METRES_IN_MILES;
+            }
+        }
 
         private void Print() 
         {
             OutputHeading();
             Console.WriteLine(FromDistance + " " + FromUnit + " is " + ToDistance + " " + ToUnit);
+        }
+
+        private void Close()
+        {
+            Console.WriteLine("Close application? \n" + "1.Yes \n" + "2.No");
+            int shutdown;
+            shutdown = Convert.ToInt32(Console.ReadLine());
+            if (shutdown == 1)
+            {
+                System.Environment.Exit(0);
+            }
+            else if (shutdown == 2)
+            {
+                UnitMenu();
+            }
         }
 
         private void OutputHeading()
