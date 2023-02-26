@@ -123,6 +123,7 @@ namespace ConsoleAppProject.App01
             }
         }
 
+
         private void Print() 
         {
             OutputHeading();
@@ -131,7 +132,7 @@ namespace ConsoleAppProject.App01
 
         private void Close()
         {
-            Console.WriteLine("Close application? \n" + "1.Yes \n" + "2.No");
+            Console.WriteLine("Close application? \n " + "1.Yes \n" + "2.No");
             int shutdown;
             shutdown = Convert.ToInt32(Console.ReadLine());
             if (shutdown == 1)
