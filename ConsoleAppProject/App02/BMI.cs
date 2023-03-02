@@ -104,8 +104,19 @@ namespace ConsoleAppProject.App02
 
         public double InputMeasurement(string prompt)
         {
-            Console.WriteLine("Please enter the number of " + prompt);
-            return Convert.ToDouble(Console.ReadLine());
+            double input;
+            do
+            {
+                Console.WriteLine("Please enter the number of " + prompt);
+                input = Convert.ToDouble(Console.ReadLine());
+                if (input <= 0)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number greater than 0");
+                }
+            }
+            while (input <= 0);
+
+            return input;
         }
 
         public void BMICalc()
