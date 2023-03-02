@@ -1,4 +1,5 @@
 ﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
 using ConsoleAppProject.Helpers;
 using System;
@@ -26,8 +27,30 @@ namespace ConsoleAppProject
             Console.WriteLine();
 
             DistanceConverter converter = new DistanceConverter();
-            converter.Run();
+            BMICalculator body = new BMICalculator();
 
+
+            Console.WriteLine(@"Please select application:
+                                1. Distance Converter
+                                2. BMI Calculator");
+            int selection;
+            selection = Convert.ToInt32(Console.ReadLine());
+            if (selection == 1)
+            {
+                converter.Run();
+            }
+            else if (selection == 2)
+            {
+                body.Run();
+            }
+            else
+            {
+                Console.WriteLine("Invalid selection, please enter 1 or 2");
+                Console.WriteLine(@"Please select application:
+                1. Distance Converter
+                2. BMI Calculator");
+            }
+            
         }
     }
 }

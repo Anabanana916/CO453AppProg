@@ -10,18 +10,16 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BMICalculator
     {
-        public const int FEET_IN_MILES = 5280;
-
         public const double KG_IN_STONE = 0.15747;
 
         public const double FEET_IN_METRES = 3.28084;
 
-        string WeightUnit;
-        string HeightUnit;
+        public string WeightUnit;
+        public string HeightUnit;
 
-        double Height;
-        double Weight;
-        double BMI;
+        public double Height;
+        public double Weight;
+        public double BMI;
 
         /// <summary>
         /// Prompt the user to enter the distance in miles
@@ -37,7 +35,8 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("Please select HEIGHT: \n");
             HeightUnit = HeightMenu();
 
-            Weight = InputDistance(WeightUnit);
+            Weight = InputMeasurement(WeightUnit);
+            Height= InputMeasurement(HeightUnit);
 
             //WeightUnit= "Miles"
             //HeightUnit = "feet"
@@ -55,39 +54,11 @@ namespace ConsoleAppProject.App02
         /// Input the miles as a double number
         /// </summary>
         /// 
-
-        public string HeightMenu()
-        {
-            Console.WriteLine("1. Metres");
-            Console.WriteLine("2. Feet");
-            Console.WriteLine("3. Close");
-
-            Console.WriteLine("Enter");
-            int choice;
-            choice = Convert.ToInt32(Console.ReadLine());
-            if (choice == 1)
-            {
-                return "metres";
-            }
-            else if (choice == 2)
-            {
-                return "feet";
-            }
-            else if (choice == 3)
-            {
-                Close();
-            }
-            if (choice <= 0 || choice > 3)
-            {
-                Console.WriteLine("Invalid choice. Please enter 1 - 3. \n");
-            }
-            return null;
-        }
-
         public string WeightMenu()
         {
             Console.WriteLine("1. KG");
             Console.WriteLine("2. Stone");
+            Console.WriteLine("3. Close");
             Console.WriteLine("Enter");
             int choice;
             choice = Convert.ToInt32(Console.ReadLine());
@@ -99,13 +70,39 @@ namespace ConsoleAppProject.App02
             {
                 return "stone";
             }
+            else if (choice == 3)
+            {
+                Close();
+            }
+            if (choice <= 0 || choice > 3)
+            {
+                Console.WriteLine("Invalid choice. Please enter 1 - 3. \n");
+            }
+            return null;
+        }
+        public string HeightMenu()
+        {
+            Console.WriteLine("1. Metres");
+            Console.WriteLine("2. Feet");
+            Console.WriteLine("Enter");
+            int choice;
+            choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                return "metres";
+            }
+            else if (choice == 2)
+            {
+                return "feet";
+            }
             if (choice <= 0 || choice > 2)
             {
                 Console.WriteLine("Invalid choice. Please enter 1 - 2. \n");
             }
             return null;
         }
-        public double InputDistance(string prompt)
+
+        public double InputMeasurement(string prompt)
         {
             Console.WriteLine("Please enter the number of " + prompt);
             return Convert.ToDouble(Console.ReadLine());
@@ -131,19 +128,19 @@ namespace ConsoleAppProject.App02
             ///</author>
             if (WeightUnit == "KG" && HeightUnit == "metres")
             {
-                BMI = Weight / (Height*Height);
+                BMI = Weight / Math.Pow(Height, 2);
             }
             else if (WeightUnit == "stone" && HeightUnit == "feet")
             {
-                BMI = Weight / (Height*Height);
+                BMI = (Weight / KG_IN_STONE) / Math.Pow(Height / FEET_IN_METRES, 2);
             }
             else if (WeightUnit == "KG" && HeightUnit == "feet")
             {
-                BMI = Weight / (Height*Height);
+                BMI = Weight / Math.Pow(Height / FEET_IN_METRES, 2);
             }
             else if (WeightUnit == "stone" && HeightUnit == "metres")
             {
-                BMI = Weight / (Height*Height);
+                BMI = (Weight / KG_IN_STONE) / Math.Pow(Height, 2);
             }
         }
 

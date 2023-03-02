@@ -17,11 +17,11 @@ namespace ConsoleAppProject.App01
 
         public const double FEET_IN_METRES = 3.28084;
 
-        string FromUnit;
-        string ToUnit;
+        public string FromUnit;
+        public string ToUnit;
 
-        double ToDistance;
-        double FromDistance;
+        public double ToDistance;
+        public double FromDistance;
         
         /// <summary>
         /// Prompt the user to enter the distance in miles
@@ -89,8 +89,15 @@ namespace ConsoleAppProject.App01
                 return null;
         }
 
+        /// <summary>
+        /// ANA!! CREATE A METHOD TO SEE IF USER ENTERS TEXT AND NOT NUMBERS! MAKE ERROR MESSAGE AND USER TRY AGAIN
+        /// </summary>
+        /// <param name="prompt"></param>
+        /// <returns></returns>
+
         public double InputDistance(string prompt)
         {
+            Console.WriteLine("You are converting " + FromUnit + " to " + ToUnit);
             Console.WriteLine("Please enter the number of " + prompt);
             return Convert.ToDouble(Console.ReadLine());
         }
