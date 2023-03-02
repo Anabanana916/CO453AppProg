@@ -154,29 +154,30 @@ namespace ConsoleAppProject.App02
                               Obese Class I | 30.0 - 34.9
                               Obese Class II | 35.0 - 39.9
                               Obese Class III | >= 40.0");
+            Console.WriteLine("Your BMI is: " + Math.Round(BMI, 2));
             if (BMI < 18.5)
             {
-                Console.WriteLine("Your BMI is: " + BMI + ". You are underweight.");
+                Console.WriteLine("You are underweight.");
             }
             else if (BMI >= 18.5 && BMI <= 24.99)
             {
-                Console.WriteLine("Your BMI is: " + BMI + ". You are normal weight.");
+                Console.WriteLine("You are normal weight.");
             }
             else if (BMI >= 25.0 && BMI <= 29.99)
             {
-                Console.WriteLine("Your BMI is: " + BMI + ". You are overweight.");
+                Console.WriteLine("You are overweight.");
             }
             else if (BMI >= 30.0 && BMI <= 34.99)
             {
-                Console.WriteLine("Your BMI is: " + BMI + ". You are obese class one.");
+                Console.WriteLine("You are obese class one.");
             }
             else if (BMI >= 35.0 && BMI <= 39.99)
             {
-                Console.WriteLine("Your BMI is: " + BMI + ". You are obese class two.");
+                Console.WriteLine("You are obese class two.");
             }
             else if (BMI >= 40.0)
             {
-                Console.WriteLine("Your BMI is: " + BMI + ". You are obese class three.");
+                Console.WriteLine("You are obese class three.");
             }
             Close();
         }
