@@ -31,7 +31,6 @@ namespace ConsoleAppProject.App01
         public void Run()
         {
             //step 1 - Input
-
             Console.Write("Enter the FROM unit: \n");
             FromUnit = UnitMenu();
             Console.WriteLine("Enter the TO unit: \n");
@@ -48,7 +47,7 @@ namespace ConsoleAppProject.App01
             // step 3
             Print();
         }
-        
+
 
         /// <summary>
         /// Prompt the user to enter the distance in miles
@@ -66,34 +65,29 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("Enter");
             int choice;
             choice = Convert.ToInt32(Console.ReadLine());
-            if (choice == 1)
-            {
-                return "miles";
-            }
-            else if (choice == 2)
-            {
-                return "feet";
-            }
-            else if (choice == 3)
-            {
-                return "metres";
-            }
-            else if (choice == 4)
-            {
-                Close();
-            }
-            if (choice <=0 || choice > 4)
-            {
-                Console.WriteLine("Invalid choice. Please enter 1 - 4. \n");
-            }
-                return null;
+                switch (choice)
+                {
+                    case 1:
+                        return "miles";
+                    case 2:
+                        return "feet";
+                    case 3:
+                        return "metres";
+                    case 4:
+                        Close();
+                        break;
+                }
+                if (choice <= 0 || choice > 4)
+                {
+                    Console.WriteLine("Invalid choice. Please enter 1 - 4. \n");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input. Please enter numbers 1 - 4");
+                }
+                        
+            return null;         
         }
-
-        /// <summary>
-        /// ANA!! CREATE A METHOD TO SEE IF USER ENTERS TEXT AND NOT NUMBERS! MAKE ERROR MESSAGE AND USER TRY AGAIN
-        /// </summary>
-        /// <param name="prompt"></param>
-        /// <returns></returns>
 
         public double InputDistance(string prompt)
         {

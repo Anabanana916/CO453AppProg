@@ -87,13 +87,12 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("Enter");
             int choice;
             choice = Convert.ToInt32(Console.ReadLine());
-            if (choice == 1)
+            switch (choice)
             {
-                return "metres";
-            }
-            else if (choice == 2)
-            {
-                return "feet";
+                case 1:
+                    return "metres";
+                case 2:
+                    return "feet";
             }
             if (choice <= 0 || choice > 2)
             {
@@ -198,13 +197,14 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("Close application? \n" + "1.Yes \n" + "2.No");
             int shutdown;
             shutdown = Convert.ToInt32(Console.ReadLine());
-            if (shutdown == 1)
+            switch (shutdown)
             {
-                System.Environment.Exit(0);
-            }
-            else if (shutdown == 2)
-            {
-                Run();
+                case 1:
+                    System.Environment.Exit(0);
+                    break;
+                case 2:
+                    Run();
+                    break;
             }
         }
 
