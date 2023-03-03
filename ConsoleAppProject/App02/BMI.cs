@@ -62,17 +62,15 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("Enter");
             int choice;
             choice = Convert.ToInt32(Console.ReadLine());
-            if (choice == 1)
+            switch (choice)
             {
-                return "KG";
-            }
-            else if (choice == 2)
-            {
-                return "stone";
-            }
-            else if (choice == 3)
-            {
-                Close();
+                case 1:
+                    return "KG";
+                case 2:
+                    return "stone";
+                case 3:
+                    Close();
+                    break;
             }
             if (choice <= 0 || choice > 3)
             {
@@ -120,22 +118,6 @@ namespace ConsoleAppProject.App02
 
         public void BMICalc()
         {
-            ///<author>switch (BMI)
-            ///{
-            ///    case WeightUnit == "KG" && HeightUnit =="metres"
-            ///        BMI = Weight / Height;
-            ///        break;
-            ///    case WeightUnit == "Stone" && HeightUnit == "feet"
-            ///        BMI = Weight / Height;
-            ///        break;
-            ///    case WeightUnit == "KG" && HeightUnit == "feet"
-            ///        BMI = Weight / Height;
-            ///        break;
-            ///    case WeightUnit == "Stone" && HeightUnit == "metres"
-            ///        BMI = Weight / Height;
-            ///        break;
-            ///}
-            ///</author>
             if (WeightUnit == "KG" && HeightUnit == "metres")
             {
                 BMI = Weight / Math.Pow(Height, 2);

@@ -136,13 +136,14 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("Close application? \n " + "1.Yes \n" + "2.No");
             int shutdown;
             shutdown = Convert.ToInt32(Console.ReadLine());
-            if (shutdown == 1)
+            switch (shutdown)
             {
-                System.Environment.Exit(0);
-            }
-            else if (shutdown == 2)
-            {
-                UnitMenu();
+                case 1:
+                    System.Environment.Exit(0);
+                    break;
+                case 2:
+                    Run();
+                    break;
             }
         }
 
