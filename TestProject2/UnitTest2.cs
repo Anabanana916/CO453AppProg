@@ -115,7 +115,7 @@ namespace Test_App2
         }
 
         [TestMethod]
-        public void T8Under()
+        public void T8Normal()
         {
             BMICalculator converter = new BMICalculator();
             converter.WeightUnit = "KG";

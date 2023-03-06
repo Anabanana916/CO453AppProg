@@ -16,6 +16,7 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
+
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
@@ -23,16 +24,16 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2022-2023! ");
+            Console.WriteLine("                     Ana Elderton                 ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
             DistanceConverter converter = new DistanceConverter();
             BMICalculator body = new BMICalculator();
 
-
             Console.WriteLine(@"Please select application:
-                                1. Distance Converter
-                                2. BMI Calculator");
+            1. Distance Converter
+            2. BMI Calculator");
             int selection;
             selection = Convert.ToInt32(Console.ReadLine());
             if (selection == 1)
@@ -46,6 +47,7 @@ namespace ConsoleAppProject
             else
             {
                 Console.WriteLine("Invalid selection, please enter 1 or 2");
+                Program.Main(args);
                 Console.WriteLine(@"Please select application:
                 1. Distance Converter
                 2. BMI Calculator");

@@ -140,13 +140,19 @@ namespace ConsoleAppProject.App02
         {
             OutputHeading();
             Console.WriteLine(@"WHO Weight Status | BMI (kg/m^2)
-                              Underweight | < 18.50
-                              Normal | 18.5 - 24.9
-                              Overweight | 25.0 - 29.9
-                              Obese Class I | 30.0 - 34.9
-                              Obese Class II | 35.0 - 39.9
-                              Obese Class III | >= 40.0");
+            Underweight | < 18.50
+            Normal | 18.5 - 24.9
+            Overweight | 25.0 - 29.9
+            Obese Class I | 30.0 - 34.9
+            Obese Class II | 35.0 - 39.9
+            Obese Class III | >= 40.0");
             Console.WriteLine("Your BMI is: " + Math.Round(BMI, 2));
+            ///Please note Derek, if I tabbed or used spaces to get the text with the @ 
+            ///symbol before it would not line up correctly. Hence why this looks messy
+            Console.WriteLine(@"If you are Black, Asian, or other minority ethnic groups,
+you have higher risk of weight-related health risks.");
+            Console.WriteLine("Adults with 23.0 or more are at increased risk");
+            Console.WriteLine("Adults with 27.0 or more are at high risk.");
             if (BMI < 18.5)
             {
                 Console.WriteLine("You are underweight.");
@@ -199,6 +205,9 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("         By Ana Elderton        ");
             Console.WriteLine(" ------------------------------ ");
             Console.WriteLine();
+            Console.Write(@"Please note, if you under 18 years of 
+age, are pregnant, a body builder or BAME, results may be 
+inaccurate.");
         }
     }
 }

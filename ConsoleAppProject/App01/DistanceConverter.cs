@@ -11,7 +11,7 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
-        public const int FEET_IN_MILES = 5280;
+        public const double FEET_IN_MILES = 5280;
 
         public const double METRES_IN_MILES = 1609.34;
 
@@ -122,6 +122,10 @@ namespace ConsoleAppProject.App01
             {
                 ToDistance = FromDistance / METRES_IN_MILES;
             }
+            else if (FromUnit == ToUnit)
+            {
+                ToDistance = FromDistance;
+            }
         }
 
 
@@ -129,11 +133,12 @@ namespace ConsoleAppProject.App01
         {
             OutputHeading();
             Console.WriteLine(FromDistance + " " + FromUnit + " is " + ToDistance + " " + ToUnit);
+            Close();
         }
 
         private void Close()
         {
-            Console.WriteLine("Close application? \n " + "1.Yes \n" + "2.No");
+            Console.WriteLine("Close application? \n" + "1.Yes \n" + "2.No");
             int shutdown;
             shutdown = Convert.ToInt32(Console.ReadLine());
             switch (shutdown)
