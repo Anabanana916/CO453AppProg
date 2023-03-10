@@ -30,12 +30,23 @@ namespace ConsoleAppProject
 
             DistanceConverter converter = new DistanceConverter();
             BMICalculator body = new BMICalculator();
+            StudentGrades grades = new StudentGrades();
 
             Console.WriteLine(@"Please select application:
             1. Distance Converter
             2. BMI Calculator");
             int selection;
             selection = Convert.ToInt32(Console.ReadLine());
+            switch (selection)
+            {
+                case 1:
+                    converter.Run();
+                case 2:
+                    body.Run();
+                case 3:
+                    grades.Run();
+            }
+
             if (selection == 1)
             {
                 converter.Run();
