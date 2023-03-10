@@ -34,7 +34,8 @@ namespace ConsoleAppProject
 
             Console.WriteLine(@"Please select application:
             1. Distance Converter
-            2. BMI Calculator");
+            2. BMI Calculator
+            3. Student Grades");
             int selection;
             selection = Convert.ToInt32(Console.ReadLine());
             switch (selection)
@@ -55,6 +56,8 @@ namespace ConsoleAppProject
             {
                 body.Run();
             }
+            else if (slection == 3)
+                grades.Run();
             else
             {
                 Console.WriteLine("Invalid selection, please enter 1 or 2");
