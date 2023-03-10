@@ -149,7 +149,7 @@ namespace ConsoleAppProject.App03
             }
             else if (mark < MinB)
             {
-                return Grade.C;
+                return Grades.C;
             }
             else if (mark < MinA)
             {
@@ -287,6 +287,5 @@ namespace ConsoleAppProject.App03
                     break;
             }
         }
-
     }
 }

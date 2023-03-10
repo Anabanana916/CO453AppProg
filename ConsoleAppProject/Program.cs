@@ -47,24 +47,16 @@ namespace ConsoleAppProject
                 case 3:
                     grades(); ;
             }
-
-            if (selection == 1)
-            {
-                converter.Run();
-            }
-            else if (selection == 2)
-            {
-                body.Run();
-            }
-            else if (slection == 3)
-                grades();
+            ///<author>
+            ///
             else
             {
                 Console.WriteLine("Invalid selection, please enter 1 or 2");
                 Program.Main(args);
                 Console.WriteLine(@"Please select application:
                 1. Distance Converter
-                2. BMI Calculator");
+                2. BMI Calculator
+                3. Grade Calculator");
             }
             
         }

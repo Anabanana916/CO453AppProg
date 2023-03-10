@@ -21,4 +21,13 @@ namespace ConsoleAppProject.App03
         [Description("BSc(Hons) First Class")]
         A
     }
+
+    public enum Options
+    {
+        Enter Marks,
+        Display Grades,
+        Display Stats,
+        Display Grade Profile,
+        Exit
+    }
 }
