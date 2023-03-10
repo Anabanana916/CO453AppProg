@@ -193,7 +193,84 @@ namespace ConsoleAppProject.App03
             Mean = total / Marks.Length;
         }
 
-        public
+        public void CalculateGradeProfile()
+        {
+            for (int i = 0; i < CalculateGradeProfile().Length; i++)
+            {
+                GradeProfile[i] = 0;
+            }
+            foreach (int mark in Marks)
+            {
+                Grades grade = ConvertToGrade(mark);
+                CalculateGradeProfile[(int)grade]++;
+            }
+        }
+
+        public void DisplayGradeProfile()
+        {
+            int[] gradeCounts = new int[5];
+            int highest = 0;
+            int lowest = 100;
+
+            foreach (int mark in Marks)
+            {
+                if (mark >= MinA)
+                {
+                    gradeCounts[4]++;
+                    if (mark > highest) highest = mark;
+                    if (mark < lowest) lowest = mark;
+                }
+                else if (mark >= MinB)
+                {
+                    gradeCounts[3]++;
+                    if (mark < lowest) lowest= mark;
+                }
+                else if (mark >= MinC)
+                {
+                    gradeCounts[2]++;
+                    if (mark < lowest) lowest = mark;
+                }
+                else if (mark >= MinD)
+                {
+                    gradeCounts[1]++;
+                    if (mark < lowest) lowest = mark;
+                }
+                else
+                {
+                    gradeCounts[0]++;
+                    if (mark < lowest) lowest = mark;
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine("Grade Profile:");
+            int total = gradeCounts.Sum();
+            Console.WriteLine($"A: {gradeCounts[4]} {(double)gradeCounts[4] / total:P}");
+            Console.WriteLine($"B: {gradeCounts[3]} {(double)gradeCounts[3] / total:P}");
+            Console.WriteLine($"C: {gradeCounts[2]} {(double)gradeCounts[2] / total:P}");
+            Console.WriteLine($"D: {gradeCounts[1]} {(double)gradeCounts[1] / total:P}");
+            Console.WriteLine($"Fail: {gradeCounts[0]} {(double)gradeCounts[0] / total:P}");
+            Console.WriteLine("Highest grade:");
+            for (int i = 0; i < Students.Length; i++)
+            {
+                if (Marks[i] == highest)
+                {
+                    double percentage = (double)EnterMarks[i] / Max * 100;
+                    Console.WriteLine($"{Students[i]} got {Marks[i]} marks and the percentage {percentage:F2}%");
+                }
+            }
+            Console.WriteLine("Lowest grade:");
+            for (int i = 0; i < Students.Length; i++)
+            {
+                if (EnterMarks[i] == lowest)
+                {
+                    double percentage = (double)Marks[i] / Max * 100;
+                    Console.WriteLine($"{Students[i]} got {Marks[i]} marks and the percentage {percentage:F2}%");
+                }
+            }
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadKey();
+            OpeningMenu();
+        }
 
         private void Close()
         {
