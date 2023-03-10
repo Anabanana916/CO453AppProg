@@ -45,7 +45,7 @@ namespace ConsoleAppProject
                 case 2:
                     body.Run();
                 case 3:
-                    grades.Run();
+                    grades(); ;
             }
 
             if (selection == 1)
@@ -57,7 +57,7 @@ namespace ConsoleAppProject
                 body.Run();
             }
             else if (slection == 3)
-                grades.Run();
+                grades();
             else
             {
                 Console.WriteLine("Invalid selection, please enter 1 or 2");
