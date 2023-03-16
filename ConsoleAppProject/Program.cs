@@ -42,14 +42,15 @@ namespace ConsoleAppProject
             {
                 case 1:
                     converter.Run();
+                    break;
                 case 2:
                     body.Run();
+                    break;
                 case 3:
-                    grades(); ;
+                    grades.Run();
+                    break;
             }
-            ///<author>
-            ///
-            else
+            if (selection != 1 || selection !=2 || selection != 3)
             {
                 Console.WriteLine("Invalid selection, please enter 1 or 2");
                 Program.Main(args);

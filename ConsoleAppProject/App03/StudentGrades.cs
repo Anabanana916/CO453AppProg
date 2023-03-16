@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using ConsoleAppProject.Helpers;
-
 namespace ConsoleAppProject.App03
 {
     /// <summary>
@@ -18,10 +17,15 @@ namespace ConsoleAppProject.App03
         public const int MinC = 50;
         public const int MinB = 60;
         public const int MinA = 70;
+        public const int Highest = 100;
 
         // Properties
         public string[] Students { get; set; }
-        public int[] Grades { get; set; }
+        public int[] Marks { get; set; }
+        public int[] GradeProfile { get; set; }
+        public int Min { get; set; }
+        public int Max { get; set; }
+        public double Average { get; set; }
 
         private void OutputHeading()
         {
@@ -31,6 +35,10 @@ namespace ConsoleAppProject.App03
             Console.WriteLine("                     Ana Elderton                 ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
+        }
+        public void Run()
+        {
+            OpeningMenu();
         }
 
         public void OpeningMenu()
@@ -45,7 +53,7 @@ namespace ConsoleAppProject.App03
                 "Exit"
             };
 
-            int choice = ConsoleHelper.SelectChoice(choice);
+            int choice = ConsoleHelper.SelectChoice(options);
             switch (choice)
             {
                 case 1:
@@ -76,7 +84,7 @@ namespace ConsoleAppProject.App03
                 "Sharon","Samera","James","Michael", "Jane",
                 "Luna","Jaina","Lucas","Aaron","Sean"
             };
-            GradeProfile = new int[(int)Grades.AsMemory + 1];
+            GradeProfile = new int[(int)Grades.A + 1];
             Marks = new int[Students.Length];
         }
 
@@ -106,7 +114,7 @@ namespace ConsoleAppProject.App03
                     }
                 }
 
-                EnterMarks[i] = mark;
+                Marks[i] = mark;
             }
             Console.WriteLine("Marks complete.");
             Console.WriteLine("Press any key to continue.");
@@ -141,7 +149,7 @@ namespace ConsoleAppProject.App03
         {
             if (mark >= 0 && mark < MinD)
             {
-                return Grades.Fail;
+                return Grades.F;
             }
             else if (mark < MinC)
             {
@@ -164,13 +172,13 @@ namespace ConsoleAppProject.App03
         public void DisplayStats()
         {
             CalculateStats();
-            double average = Avergage;
+            double average = Average;
             Console.WriteLine($"Class Average: {average.ToString("Fail")}");
 
-            int min = Minimum;
+            int min = Min;
             Console.WriteLine($"Lowest Mark: {min}");
 
-            int max = Maximum;
+            int max = Max;
             Console.WriteLine($"Maximum Mark: {max}");
 
             Console.WriteLine("Press any key to continue.");
@@ -190,19 +198,19 @@ namespace ConsoleAppProject.App03
                 if (mark < Min) Min = mark;
             }
 
-            Mean = total / Marks.Length;
+            Average = total / Marks.Length;
         }
 
         public void CalculateGradeProfile()
         {
-            for (int i = 0; i < CalculateGradeProfile().Length; i++)
+            for (int i = 0; i < GradeProfile.Length; i++)
             {
                 GradeProfile[i] = 0;
             }
             foreach (int mark in Marks)
             {
                 Grades grade = ConvertToGrade(mark);
-                CalculateGradeProfile[(int)grade]++;
+                GradeProfile[(int)grade]++;
             }
         }
 
@@ -254,14 +262,14 @@ namespace ConsoleAppProject.App03
             {
                 if (Marks[i] == highest)
                 {
-                    double percentage = (double)EnterMarks[i] / Max * 100;
+                    double percentage = (double)Marks[i] / Max * 100;
                     Console.WriteLine($"{Students[i]} got {Marks[i]} marks and the percentage {percentage:F2}%");
                 }
             }
             Console.WriteLine("Lowest grade:");
             for (int i = 0; i < Students.Length; i++)
             {
-                if (EnterMarks[i] == lowest)
+                if (Marks[i] == lowest)
                 {
                     double percentage = (double)Marks[i] / Max * 100;
                     Console.WriteLine($"{Students[i]} got {Marks[i]} marks and the percentage {percentage:F2}%");
@@ -283,7 +291,7 @@ namespace ConsoleAppProject.App03
                     System.Environment.Exit(0);
                     break;
                 case 2:
-                    Run();
+                    OpeningMenu();
                     break;
             }
         }
