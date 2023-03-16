@@ -124,7 +124,7 @@ namespace ConsoleAppProject.App03
 
         public void DisplayGrades()
         {
-            Console.WriteLine("Number".PadRight(5) + "Name".PadRight(5) + "Mark".PadRight(8) + "Grade");
+            Console.WriteLine("Number".PadRight(10) + "Name".PadRight(10) + "Mark".PadRight(10) + "Grade");
             Console.WriteLine("-------------------------------------------------------------");
             int students = 0;
             for (int i = 0; i < Students.Length; i++)
@@ -132,9 +132,9 @@ namespace ConsoleAppProject.App03
                 int mark = Marks[i];
                 Grades grade = ConvertToGrade(mark);
                 string studentNumber = (i + 1).ToString("D2");
-                Console.Write($"{studentNumber}.".PadRight(5));
-                Console.Write($"{Students[i]}".PadRight(5));
-                Console.Write($"{mark}".PadRight(5));
+                Console.Write($"{studentNumber}.".PadRight(10));
+                Console.Write($"{Students[i]}".PadRight(10));
+                Console.Write($"{mark}".PadRight(10));
                 Console.WriteLine($"{grade}");
                 students++;
             }
@@ -173,7 +173,7 @@ namespace ConsoleAppProject.App03
         {
             CalculateStats();
             double average = Average;
-            Console.WriteLine($"Class Average: {average.ToString("Fail")}");
+            Console.WriteLine($"Class Average: {average}");
 
             int min = Min;
             Console.WriteLine($"Lowest Mark: {min}");
