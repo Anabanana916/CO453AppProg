@@ -24,8 +24,8 @@ namespace ConsoleAppProject.App03
 
     public enum Options
     {
-        Enter Marks,
-        Display Grades,
+        Enter ,Marks,
+        Display, Grades,
         Display Stats,
         Display Grade Profile,
         Exit
