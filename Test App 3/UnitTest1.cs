@@ -9,10 +9,9 @@ namespace Test_App_3
         public void FeetToMiles()
         {
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.FromUnit = "feet";
-            converter.ToUnit = "miles";
-            converter.FromDistance = 5280;
+            StudentGrades converter = new StudentGrades();
+            converter.Marks = "68";
+
 
             converter.ConvertDistance();
 
