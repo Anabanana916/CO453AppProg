@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 using System;
 
@@ -31,11 +32,13 @@ namespace ConsoleAppProject
             DistanceConverter converter = new DistanceConverter();
             BMICalculator body = new BMICalculator();
             StudentGrades grades = new StudentGrades();
+            PostUI social = new PostUI();
 
             Console.WriteLine(@"Please select application:
             1. Distance Converter
             2. BMI Calculator
-            3. Student Grades");
+            3. Student Grades
+            4. Social Space");
             int selection;
             selection = Convert.ToInt32(Console.ReadLine());
             switch (selection)
@@ -49,15 +52,19 @@ namespace ConsoleAppProject
                 case 3:
                     grades.Run();
                     break;
+                case 4:
+                    social.Run();
+                    break;
             }
-            if (selection != 1 || selection !=2 || selection != 3)
+            if (selection != 1 || selection != 2 || selection != 3 || selection != 4)
             {
-                Console.WriteLine("Invalid selection, please enter 1 or 2");
+                Console.WriteLine("Invalid selection, please enter 1 or 4");
                 Program.Main(args);
                 Console.WriteLine(@"Please select application:
                 1. Distance Converter
                 2. BMI Calculator
-                3. Grade Calculator");
+                3. Grade Calculator
+                4. Social Space");
             }
             
         }
