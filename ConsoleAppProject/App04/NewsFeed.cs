@@ -27,6 +27,12 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
+
+            MessagePost post = new MessagePost("Ana","Oh ****! Is a message post!");
+            AddMessagePost(post);
+
+            PhotoPost photoPost = new PhotoPost("Ana", "TheBoi.png", "Oh ****! It's dat boi!");
+            posts.Add(photoPost);
         }
 
 

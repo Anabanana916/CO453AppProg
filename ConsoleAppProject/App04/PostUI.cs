@@ -8,7 +8,7 @@ namespace ConsoleAppProject.App04
     /// Class is user interface, allows user to
     /// post messages and photos
     /// </summary>
-    public class PostUI
+    public class PostUI : NewsFeed
     {
         private NewsFeed news = new NewsFeed();
 
@@ -16,22 +16,22 @@ namespace ConsoleAppProject.App04
         {
             SocialMenu();
         }
+
         public void SocialMenu()
         {
             ConsoleHelper.OutputHeading("App04: A Social Space");
 
-            string[] choices =
+            string[] choices = new string[]
             {
                 "Message Post",
                 "Photo Post",
                 "Display All",
-                "Another Option",
                 "Quit"
             };
 
             bool quit = false;
 
-            while (quit != false)
+            while (quit != true)
             {
                 int choice = ConsoleHelper.SelectChoice(choices);
 
@@ -40,20 +40,28 @@ namespace ConsoleAppProject.App04
                     case 1: AddMessage(); break;
                     case 2: AddPhoto(); break;
                     case 3: DisplayAll(); break;
-                    case 4: break;
-                    case 5: quit = true; break;
+                    case 4: quit = true; break;
                 }
             }
         }
 
         private void DisplayAll()
         {
-            throw new NotImplementedException();
+            news.Display();
         }
 
         private void AddPhoto()
         {
-            throw new NotImplementedException();
+            string name = GetUserName();
+
+            Console.Write("Please enter filename > ");
+            string filename = Console.ReadLine();
+
+            Console.Write("Please enter caption > ");
+            string caption = Console.ReadLine();
+
+            PhotoPost post = new PhotoPost(name, filename, caption);
+            news.AddPhotoPost(post);
         }
 
         private void AddMessage()
@@ -65,7 +73,7 @@ namespace ConsoleAppProject.App04
 
             MessagePost post = new MessagePost(name, message);
             news.AddMessagePost(post);
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private string GetUserName()

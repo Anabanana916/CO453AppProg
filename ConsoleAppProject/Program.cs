@@ -56,7 +56,7 @@ namespace ConsoleAppProject
                     social.Run();
                     break;
             }
-            if (selection != 1 || selection != 2 || selection != 3 || selection != 4)
+            if (selection < 1 || selection > 4)
             {
                 Console.WriteLine("Invalid selection, please enter 1 or 4");
                 Program.Main(args);
